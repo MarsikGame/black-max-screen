@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Чёрный экран</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Black Screen">
+  <style>
+    html, body { height: 100%; margin: 0; background: #000; }
+    * { -webkit-tap-highlight-color: transparent; }
+    #hint {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #444;
+      font-family: sans-serif;
+      font-size: 14px;
+      text-align: center;
+    }
+    #hint.hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div id="hint">Нажмите в Safari «Поделиться» → «На экран Домой»,<br>чтобы превратить это в приложение.</div>
+
+  <script>
+    // Убираем подсказку после первого тапа
+    document.addEventListener('click', () => {
+      document.getElementById('hint').classList.add('hidden');
+    });
+    document.addEventListener('contextmenu', e => e.preventDefault());
+  </script>
+</body>
+</html>
